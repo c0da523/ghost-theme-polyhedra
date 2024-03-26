@@ -60,38 +60,35 @@
       </figure>
       {{/if}}
   </header>
-
-    <div class="gh-content gh-canvas">
-        {{content}}
-    </div>
-
-    <footer class="gh-footer gh-canvas">
-
-        <div class="gh-post-authors">
-            Written by {{#foreach authors}}<a href="{{url}}">{{name}}</a>{{/foreach}}
-        </div>
-
-        {{#if comments}}
-        <section class="gh-post-comments">
-            {{comments}}
-        </section>
-        {{/if}}
-
-    </footer>
-
+  <div class="gh-content gh-canvas">
+      {{content}}
+  </div>
 </article>
 
-<aside class="gh-readmore">
-    <div class="gh-readmore-inner gh-container">
-        <div class="gh-readmore-next">
-            {{#next_post}}<a href="{{url}}">{{> "icons/arrow-left"}} <h4>{{title}}</h4></a>{{/next_post}}
-        </div>
-        <div class="gh-readmore-prev">
-            {{#prev_post}}<a href="{{url}}">
-                <h4>{{title}}</h4> {{> "icons/arrow-right"}}
-            </a>{{/prev_post}}
-        </div>
-    </div>
-</aside>
+{{!-- Read more links, just above the footer --}}
+{{#if @custom.show_recent_posts_footer}}
+    {{!-- The {#get} helper below fetches some of the latest posts here
+    so that people have something else to read when they finish this one.
+
+    This query gets the latest 3 posts on the site, but adds a filter to
+    exclude the post we're currently on from being included. --}}
+    {{#get "posts" filter="id:-{{id}}" limit="2" as |more_posts|}}
+
+        {{#if more_posts}}
+            <aside class="read-more-wrap outer gh-canvas">
+              <div class="read-more-divider"></div>
+               <div class="read-more-title">
+                  More Blog
+                </div>
+                <div class="read-more inner">
+                    {{#foreach more_posts}}
+                        {{> "post-card"}}
+                    {{/foreach}}
+                </div>
+            </aside>
+        {{/if}}
+
+    {{/get}}
+{{/if}}
 
 {{/post}}

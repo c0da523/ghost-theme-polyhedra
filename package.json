@@ -80,6 +80,13 @@
       "xl": {
         "width": 2000
       }
+    },
+    "custom": {
+      "show_recent_posts_footer": {
+        "type": "boolean",
+        "default": true,
+        "group": "post"
+      }
     }
   },
   "type": "module"
