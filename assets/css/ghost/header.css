@@ -2,8 +2,10 @@
 /* ---------------------------------------------------------- */
 
 .gh-head {
+  display: flex;
+  align-items: center;
   /* vmin 是一个长度单位，表示视口（viewport）的宽度和高度中较小的那个的百分比。 */
-  padding: 3vmin 4vmin;
+  padding: 0 4vmin;
   font-size: 1.6rem;
   line-height: 1.3em;
   background: #000;

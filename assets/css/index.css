@@ -54,18 +54,29 @@ html,
 .gh-postfeed {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
-  gap: 4.8vmin 4vmin;
+  gap: 4.8vmin 2.4rem;
   padding: 8vmin 0;
 }
 
+/* 第一个占据单独一行 */
 .gh-postfeed > *:first-child {
-  grid-column: 1 / -1;
+  /* grid-column: 1 / -1; */
 }
 
 .gh-container {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.gh-container-title {
+  width: 100%;
+  max-width: 1200px;
+  margin: 8.8vmin auto 4vmin;
+  color: var(--color-primary, #fff);
+  font-size: 3.6rem;
+  font-weight: 500;
+  line-height: 100%; /* 32px */
 }
 
 .gh-head-actions a:not(.gh-button) {
@@ -88,8 +99,16 @@ html,
   height: 2rem;
 }
 
-/* Index
+/* Index 首页的列表card
 /* ---------------------------------------------------------- */
+
+.gh-card {
+  position: relative;
+  border-radius: 16px 16px 0px 0px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+}
 
 /* .gh-card:not(:first-child) {
     margin: 8vmin auto 0;
@@ -104,8 +123,10 @@ html,
   width: 100%;
   /* max-height: 700px; */
   object-fit: cover;
-  margin-bottom: 4vmin;
+  /* margin-bottom: 4vmin; */
+  margin-bottom: 0;
   aspect-ratio: 1 / 1;
+  border-radius: 16px 16px 0px 0px;
 }
 
 .gh-card-image:first-of-type {
@@ -114,19 +135,34 @@ html,
 
 .gh-card-meta {
   display: block;
-  margin: 0 0 1rem;
+  margin: 0 0 1.6rem;
   font-size: 1.4rem;
   line-height: 1.2em;
   letter-spacing: 0.5px;
-  text-transform: uppercase;
   opacity: 0.8;
 }
 
 .gh-card-content {
-  max-width: 720px;
+  width: 100%;
   margin: 0 auto;
-  text-align: center;
+  text-align: left;
   font-size: 1.6rem;
+  padding: 16px 18px;
+}
+
+.gh-card-title {
+  color: #fff;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.5;
+  margin-bottom: 1.6rem;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 6rem; /*固定两行*/
+  -webkit-line-clamp: 2; /* 显示的行数 */
 }
 
 .gh-card-content p {
@@ -140,6 +176,14 @@ html,
   font-weight: 500;
   box-shadow: 0 -1px 0 0 inset currentColor;
   opacity: 0.75;
+}
+
+.gh-card-tags {
+  display: inline-flex;
+  border-radius: 50px;
+  padding: 10px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  line-height: 1;
 }
 
 /* Page
