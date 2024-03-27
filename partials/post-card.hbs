@@ -38,10 +38,9 @@ which templates loop over to generate a list of posts. --}}
     <div class="post-card-content">
 
         <a class="post-card-content-link" href="{{url}}">
-            <header class="post-card-header">
-                <div class="post-card-tags">
+            <header class="post-card-content-header">
+                <div class="post-card-meta">
                     <time class="post-card-meta-date" datetime="{{date format="YYYY-MM-DD"}}">{{date}}</time>
-
                 </div>
                 <h2 class="post-card-title">
                     {{#unless access}}
@@ -58,14 +57,14 @@ which templates loop over to generate a list of posts. --}}
                 <div class="post-card-excerpt">{{excerpt}}</div>
             {{/if}} --}}
         </a>
-
-        <footer class="post-card-meta">
+        <footer class="post-card-content-footer">
             {{#primary_tag}}
-              <span class="post-card-primary-tag">{{name}}</span>
+              <span class="post-card-tags primary-tag">{{name}}</span>
             {{/primary_tag}}
-            {{#if featured}}
+
+            {{!-- {{#if featured}}
                 <span class="post-card-featured">{{> "icons/fire"}} Featured</span>
-            {{/if}}
+            {{/if}} --}}
             {{!-- {{#if reading_time}}
                 <span class="post-card-meta-length">{{reading_time}}</span>
             {{/if}} --}}
